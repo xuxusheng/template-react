@@ -2,16 +2,18 @@
   "name": "template",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "author": "",
   "scripts": {
     "prepare": "husky install",
     "lint": "eslint src/ --fix --ext .js,.jsx,.ts,.tsx",
     "start": "webpack server --config webpack/webpack.dev.ts",
     "build": "webpack --config webpack/webpack.prod.ts"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "lint-staged": {
+    "packages/**/*.{js,jsx,ts,tsx}": [
+      "eslint --fix --quiet"
+    ]
+  },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
     "antd": "^4.17.1",

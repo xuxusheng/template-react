@@ -36,7 +36,6 @@ export default merge(common, {
     port: 'auto',
     hot: true,
     historyApiFallback: true,
-    open: ['/?appId=test&redirectUrl=test'],
     proxy: {
       '/api': {
         target: 'http://localhost:3000',
