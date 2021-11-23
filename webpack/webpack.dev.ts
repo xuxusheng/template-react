@@ -35,6 +35,10 @@ export default merge(common, {
   devServer: {
     port: 'auto',
     hot: true,
+    allowedHosts: 'all',
+    headers: {
+      'access-control-allow-origin': '*',
+    },
     historyApiFallback: true,
     proxy: {
       '/api': {
