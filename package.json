@@ -10,7 +10,7 @@
     "build": "webpack --config webpack/webpack.prod.ts"
   },
   "lint-staged": {
-    "packages/**/*.{js,jsx,ts,tsx}": [
+    "src/**/*.{js,jsx,ts,tsx}": [
       "eslint --fix --quiet"
     ]
   },

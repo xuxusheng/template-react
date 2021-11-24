@@ -11,6 +11,7 @@ const HomeView: FC = () => {
     <div className={styles.root}>
       <Card>
         <h2>HomeView</h2>
+        <p>paragraph</p>
       </Card>
       <Alert type="success" message="hello world" />
 
