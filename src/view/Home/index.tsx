@@ -1,4 +1,4 @@
-import { Alert, Avatar, Button, Space } from 'antd'
+import { Alert, Avatar, Button, Card, Space } from 'antd'
 import { FC, useState } from 'react'
 
 import avatar from './avatar.png'
@@ -9,19 +9,27 @@ const HomeView: FC = () => {
 
   return (
     <div className={styles.root}>
-      <h2>HomeView</h2>
+      <Card>
+        <h2>HomeView</h2>
+      </Card>
       <Alert type="success" message="hello world" />
-      <Avatar src={avatar} />
-      <Space>
-        <Button
-          onClick={() => {
-            setCount(count + 1)
-          }}
-        >
-          点击加 1
-        </Button>
-        {count}
-      </Space>
+
+      <Card>
+        <Avatar src={avatar} />
+      </Card>
+
+      <Card>
+        <Space>
+          <Button
+            onClick={() => {
+              setCount(count + 1)
+            }}
+          >
+            点击加 1
+          </Button>
+          {count}
+        </Space>
+      </Card>
     </div>
   )
 }
