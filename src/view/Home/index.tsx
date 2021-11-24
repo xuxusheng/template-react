@@ -1,6 +1,7 @@
-import { Alert, Button, Space } from 'antd'
+import { Alert, Avatar, Button, Space } from 'antd'
 import { FC, useState } from 'react'
 
+import avatar from './avatar.png'
 import styles from './index.module.scss'
 
 const HomeView: FC = () => {
@@ -10,7 +11,7 @@ const HomeView: FC = () => {
     <div className={styles.root}>
       <h2>HomeView</h2>
       <Alert type="success" message="hello world" />
-
+      <Avatar src={avatar} />
       <Space>
         <Button
           onClick={() => {

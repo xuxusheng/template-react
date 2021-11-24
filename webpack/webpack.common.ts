@@ -41,6 +41,7 @@ const config: Configuration = {
   plugins: [
     new HtmlWebpackPlugin({
       template: resolve(__dirname, '../src/index.html'),
+      favicon: resolve(__dirname, '../src/favicon.ico'),
     }),
   ],
 }
