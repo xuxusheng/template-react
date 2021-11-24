@@ -1,5 +1,6 @@
 import 'webpack-dev-server'
 
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 import merge from 'webpack-merge'
 
 import common from './webpack.common'
@@ -32,6 +33,7 @@ export default merge(common, {
       },
     ],
   },
+  plugins: [new ReactRefreshWebpackPlugin()],
   devServer: {
     port: 'auto',
     hot: true,
