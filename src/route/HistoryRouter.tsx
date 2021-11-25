@@ -9,7 +9,7 @@ interface Props {
 export const HistoryRouter: FC<Props> = ({ history, children }) => {
   const [state, setState] = useState({
     action: history.action,
-    location: history.location,
+    location: history.location
   })
 
   useLayoutEffect(() => {

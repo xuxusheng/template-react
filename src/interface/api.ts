@@ -21,5 +21,5 @@ export enum ErrCode {
   // token 相关错误码
   TokenEmpty = 2000_0001,
   TokenExpired = 2000_0002,
-  TokenInvalid = 2000_0003,
+  TokenInvalid = 2000_0003
 }

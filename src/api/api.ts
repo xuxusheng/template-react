@@ -10,19 +10,19 @@ enum ErrCode {
   // token 相关错误
   TokenEmpty = 2000_0001,
   TokenExpired = 2000_0002,
-  TokenInvalid = 2000_0003,
+  TokenInvalid = 2000_0003
 }
 
 const createAxiosInstance = (): AxiosInstance => {
   const instance = axios.create({
-    validateStatus: () => true, // 不管 http 状态码为多少，都不抛出错误，在响应拦截器中进行处理
+    validateStatus: () => true // 不管 http 状态码为多少，都不抛出错误，在响应拦截器中进行处理
   })
 
   // 请求拦截器
   instance.interceptors.request.use((config) => {
     config.headers = {
       ...config.headers,
-      Authorization: `Bearer ${getToken()}`,
+      Authorization: `Bearer ${getToken()}`
     }
     // 如果后端接口接受的参数规范是蛇形，需要转换的话，在这里处理
     // config.data = c2s(config.data);
@@ -60,7 +60,7 @@ const createAxiosInstance = (): AxiosInstance => {
         onOk: () => {
           // 跳转登录的时候不要忘记参数
           history.push('/login' + window.location.search)
-        },
+        }
       })
 
       throw data

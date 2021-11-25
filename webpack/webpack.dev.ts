@@ -23,15 +23,15 @@ export default merge(common, {
                 mode: 'local',
                 auto: true,
                 // 针对 scss 文件中类名为蛇形，ts 中类名为驼峰，这样设置之后，ts 中不管用驼峰类名还是蛇形类名都会转为相同的 hash 串
-                exportLocalsConvention: 'camelCase',
-              },
-            },
+                exportLocalsConvention: 'camelCase'
+              }
+            }
           },
           'postcss-loader',
-          'sass-loader',
-        ],
-      },
-    ],
+          'sass-loader'
+        ]
+      }
+    ]
   },
   plugins: [new ReactRefreshWebpackPlugin()],
   devServer: {
@@ -39,13 +39,13 @@ export default merge(common, {
     hot: true,
     allowedHosts: 'all',
     headers: {
-      'access-control-allow-origin': '*',
+      'access-control-allow-origin': '*'
     },
     historyApiFallback: true,
     proxy: {
       '/api': {
-        target: 'http://localhost:3000',
-      },
-    },
-  },
+        target: 'http://localhost:3000'
+      }
+    }
+  }
 })

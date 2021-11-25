@@ -9,7 +9,7 @@ class AuthApi extends Api {
   // 通过 appId 换取 appToken
   getAppToken = (appId: string) =>
     this.axios.post<Res<{ appToken: string }>>('/api/v1/auth/get-app-token', {
-      appId,
+      appId
     })
 }
 

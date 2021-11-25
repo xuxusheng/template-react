@@ -1,5 +1,6 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import { resolve } from 'path'
+import process from 'process'
 import { Configuration } from 'webpack'
 
 const config: Configuration = {
@@ -7,10 +8,10 @@ const config: Configuration = {
   output: {
     path: resolve(__dirname, '../dist'),
     filename: '[name]-[contenthash:8].bundle.js',
-    clean: true,
+    clean: true
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: ['.tsx', '.ts', '.js']
   },
   module: {
     rules: [
@@ -22,28 +23,38 @@ const config: Configuration = {
             options: {
               name: '[name]-[contenthash:8].[ext]',
               outputPath: 'images',
-              limit: 8 * 1024,
-            },
-          },
-        ],
+              limit: 8 * 1024
+            }
+          }
+        ]
       },
       {
         test: /\.(eot|ttf|woff|woff2|font)$/,
-        use: [{ loader: 'file-loader' }],
+        use: [{ loader: 'file-loader' }]
       },
       {
         test: /\.tsx?$/,
-        use: ['babel-loader'],
-        exclude: /node_modules/,
-      },
-    ],
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              plugins:
+                process.env.NODE_ENV === 'production'
+                  ? []
+                  : [require.resolve('react-refresh/babel')]
+            }
+          }
+        ],
+        exclude: /node_modules/
+      }
+    ]
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: resolve(__dirname, '../src/index.html'),
-      favicon: resolve(__dirname, '../src/favicon.ico'),
-    }),
-  ],
+      favicon: resolve(__dirname, '../src/favicon.ico')
+    })
+  ]
 }
 
 export default config
