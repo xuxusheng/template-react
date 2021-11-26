@@ -1,9 +1,8 @@
 import './App.scss'
 
 import { FC } from 'react'
-
-import { RootRoute } from '../route'
+import { Outlet } from 'react-location'
 
 export const App: FC = () => {
-  return <RootRoute />
+  return <Outlet />
 }

@@ -1,11 +1,11 @@
 import { ConfigProvider } from 'antd'
 import zhCN from 'antd/lib/locale/zh_CN'
 import { render } from 'react-dom'
+import { Router } from 'react-location'
 import { QueryClient, QueryClientProvider } from 'react-query'
 
 import { App } from './app/App'
-import { history } from './route/history'
-import { HistoryRouter } from './route/HistoryRouter'
+import { reactLocation, routes } from './route'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -21,9 +21,9 @@ const queryClient = new QueryClient({
 render(
   <ConfigProvider locale={zhCN}>
     <QueryClientProvider client={queryClient}>
-      <HistoryRouter history={history}>
+      <Router location={reactLocation} routes={routes}>
         <App />
-      </HistoryRouter>
+      </Router>
     </QueryClientProvider>
   </ConfigProvider>,
   document.querySelector('#root')

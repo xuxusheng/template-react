@@ -1,7 +1,7 @@
 import { message, Modal } from 'antd'
 import axios, { AxiosInstance } from 'axios'
 
-import { history } from '../route/history'
+import { reactLocation } from '../route'
 import { getToken, setToken } from '../utils'
 
 enum ErrCode {
@@ -58,8 +58,10 @@ const createAxiosInstance = (): AxiosInstance => {
       Modal.error({
         content: '登录状态已失效，请重新登录',
         onOk: () => {
+          // todo 跳转 passport
+          // todo 如果是子应用的话，调用主应用传下来的 goToLogin 方法
           // 跳转登录的时候不要忘记参数
-          history.push('/login' + window.location.search)
+          reactLocation.history.push('/login' + window.location.search)
         }
       })
 
