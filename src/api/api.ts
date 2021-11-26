@@ -8,9 +8,9 @@ enum ErrCode {
   Success = 0,
 
   // token 相关错误
-  TokenEmpty = 2000_0001,
-  TokenExpired = 2000_0002,
-  TokenInvalid = 2000_0003
+  TokenEmpty = 401_00_001,
+  TokenExpired = 401_00_002,
+  TokenInvalid = 401_00_003
 }
 
 const createAxiosInstance = (): AxiosInstance => {
@@ -22,7 +22,7 @@ const createAxiosInstance = (): AxiosInstance => {
   instance.interceptors.request.use((config) => {
     config.headers = {
       ...config.headers,
-      Authorization: `Bearer ${getToken()}`
+      Authorization: getToken() ? `Bearer ${getToken()}` : ''
     }
     // 如果后端接口接受的参数规范是蛇形，需要转换的话，在这里处理
     // config.data = c2s(config.data);
