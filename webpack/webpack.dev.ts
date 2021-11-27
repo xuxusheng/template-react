@@ -1,6 +1,7 @@
 import 'webpack-dev-server'
 
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
+import DotenvWebpackPlugin from 'dotenv-webpack'
 import merge from 'webpack-merge'
 
 import common from './webpack.common'
@@ -33,7 +34,7 @@ export default merge(common, {
       }
     ]
   },
-  plugins: [new ReactRefreshWebpackPlugin()],
+  plugins: [new ReactRefreshWebpackPlugin(), new DotenvWebpackPlugin()],
   devServer: {
     port: 'auto',
     hot: true,

@@ -1,7 +1,7 @@
 import { message, Modal } from 'antd'
 import axios, { AxiosInstance } from 'axios'
 
-import { reactLocation } from '../route'
+import { getConfig } from '../config'
 import { getToken, setToken } from '../utils'
 
 enum ErrCode {
@@ -56,12 +56,26 @@ const createAxiosInstance = (): AxiosInstance => {
       setToken('')
 
       Modal.error({
-        content: '登录状态已失效，请重新登录',
+        okText: '确认',
+        content:
+          data.errCode === ErrCode.TokenEmpty
+            ? '请点击确认按钮进行登录'
+            : '登录状态已失效，请点击确认按钮重新登录',
         onOk: () => {
-          // todo 跳转 passport
-          // todo 如果是子应用的话，调用主应用传下来的 goToLogin 方法
-          // 跳转登录的时候不要忘记参数
-          reactLocation.history.push('/login' + window.location.search)
+          const redirectUrl = encodeURIComponent(window.location.href)
+
+          // 1. 如果使用统一认证中心，跳转 passport 即可
+          const { passportUrl, appId } = getConfig()
+          const searchParams = new URLSearchParams({
+            appId,
+            redirectUrl
+          })
+          window.location.href = `${passportUrl}?${searchParams.toString()}`
+
+          // 2. 如果是自己实现登录，跳转自己的登录页即可
+          // reactLocation.history.push(`/login?redirectUrl=${redirectUrl}`)
+
+          // 3 如果是子应用的话，调用主应用传下来的 goToLogin 方法
         }
       })
 

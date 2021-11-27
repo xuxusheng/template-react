@@ -9,7 +9,7 @@ specifiers:
   '@commitlint/cli': ^15.0.0
   '@commitlint/config-conventional': ^15.0.0
   '@pmmmwh/react-refresh-webpack-plugin': ^0.5.2
-  '@types/css-minimizer-webpack-plugin': ^3.2.1
+  '@types/dotenv-webpack': ^7.0.3
   '@types/mini-css-extract-plugin': ^2.4.0
   '@types/node': ^16.11.10
   '@types/react': ^17.0.37
@@ -24,6 +24,7 @@ specifiers:
   cross-env: ^7.0.3
   css-loader: ^6.5.1
   css-minimizer-webpack-plugin: ^3.2.0
+  dotenv-webpack: ^7.0.3
   eslint: ^8.3.0
   eslint-config-prettier: ^8.3.0
   eslint-plugin-prettier: ^4.0.0
@@ -74,7 +75,7 @@ devDependencies:
   '@commitlint/cli': 15.0.0
   '@commitlint/config-conventional': 15.0.0
   '@pmmmwh/react-refresh-webpack-plugin': 0.5.2_e7696c31560350b53940c3b92a64e90e
-  '@types/css-minimizer-webpack-plugin': 3.2.1_webpack@5.64.4
+  '@types/dotenv-webpack': 7.0.3_webpack-cli@4.9.1
   '@types/mini-css-extract-plugin': 2.4.0_webpack-cli@4.9.1
   '@types/node': 16.11.10
   '@types/react': 17.0.37
@@ -87,6 +88,7 @@ devDependencies:
   cross-env: 7.0.3
   css-loader: 6.5.1_webpack@5.64.4
   css-minimizer-webpack-plugin: 3.2.0_webpack@5.64.4
+  dotenv-webpack: 7.0.3_webpack@5.64.4
   eslint: 8.3.0
   eslint-config-prettier: 8.3.0_eslint@8.3.0
   eslint-plugin-prettier: 4.0.0_d8c6a2a4ba8850181fffb74d8e835cec
@@ -1696,22 +1698,23 @@ packages:
       '@types/node': 16.11.10
     dev: true
 
-  /@types/css-minimizer-webpack-plugin/3.2.1_webpack@5.64.4:
-    resolution: {integrity: sha512-MIlnEVQDTX0Y1/ZBY0RyD+F6+ZHlG42qCeSoCVhxI5N1atm+RnmDLQWUCWrdNqebFozUTRLDZJ04v5aYzGG5CA==}
-    deprecated: This is a stub types definition. css-minimizer-webpack-plugin provides its own type definitions, so you do not need this installed.
-    dependencies:
-      css-minimizer-webpack-plugin: 3.2.0_webpack@5.64.4
-    transitivePeerDependencies:
-      - clean-css
-      - csso
-      - esbuild
-      - webpack
-    dev: true
-
   /@types/cssnano/4.0.1:
     resolution: {integrity: sha512-hGOroxRTBkYl5gSBRJOffhV4+io+Y2bFX1VP7LgKEVHJt/LPPJaWUIuDAz74Vlp7l7hCDZfaDi7iPxwNwuVA4Q==}
     dependencies:
       postcss: 7.0.39
+    dev: true
+
+  /@types/dotenv-webpack/7.0.3_webpack-cli@4.9.1:
+    resolution: {integrity: sha512-NGmfRWp/5hTnnhl4glRbgQhtpJeVN8EUafxvOjVSEKiq8WCcfCH4MyiwRYHspwbIL9Ke+bptp3uTfBHiYIhEWw==}
+    dependencies:
+      '@types/node': 16.11.10
+      tapable: 2.2.1
+      webpack: 5.64.4_webpack-cli@4.9.1
+    transitivePeerDependencies:
+      - '@swc/core'
+      - esbuild
+      - uglify-js
+      - webpack-cli
     dev: true
 
   /@types/eslint-scope/3.7.1:
@@ -3345,6 +3348,27 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       is-obj: 2.0.0
+    dev: true
+
+  /dotenv-defaults/2.0.2:
+    resolution: {integrity: sha512-iOIzovWfsUHU91L5i8bJce3NYK5JXeAwH50Jh6+ARUdLiiGlYWfGw6UkzsYqaXZH/hjE/eCd/PlfM/qqyK0AMg==}
+    dependencies:
+      dotenv: 8.6.0
+    dev: true
+
+  /dotenv-webpack/7.0.3_webpack@5.64.4:
+    resolution: {integrity: sha512-O0O9pOEwrk+n1zzR3T2uuXRlw64QxHSPeNN1GaiNBloQFNaCUL9V8jxSVz4jlXXFP/CIqK8YecWf8BAvsSgMjw==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      webpack: ^4 || ^5
+    dependencies:
+      dotenv-defaults: 2.0.2
+      webpack: 5.64.4_webpack-cli@4.9.1
+    dev: true
+
+  /dotenv/8.6.0:
+    resolution: {integrity: sha512-IrPdXQsk2BbzvCBGBOTmmSH5SodmqZNt4ERAZDmW4CT+tL8VtvinqywuANaFu4bOMWki16nqf0e4oC0QIaDr/g==}
+    engines: {node: '>=10'}
     dev: true
 
   /ee-first/1.1.1:
