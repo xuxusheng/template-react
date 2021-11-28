@@ -34,7 +34,12 @@ export default merge(common, {
       }
     ]
   },
-  plugins: [new ReactRefreshWebpackPlugin(), new DotenvWebpackPlugin()],
+  plugins: [
+    new ReactRefreshWebpackPlugin({
+      overlay: false
+    }),
+    new DotenvWebpackPlugin()
+  ],
   devServer: {
     port: 'auto',
     hot: true,
