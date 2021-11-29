@@ -8,7 +8,7 @@ import { ReactQueryDevtools } from 'react-query/devtools'
 
 import { App } from './app/App'
 import { reactLocation, routes } from './route'
-import { qiankun } from './utils'
+import { qiankun } from './utils/qiankun'
 
 const queryClient = new QueryClient({
   defaultOptions: {

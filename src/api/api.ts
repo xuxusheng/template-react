@@ -2,7 +2,9 @@ import { message, Modal } from 'antd'
 import axios, { AxiosInstance } from 'axios'
 
 import { getConfig } from '../config'
-import { getToken, login, qiankun, setToken } from '../utils'
+import { login } from '../utils/auth'
+import { qiankun } from '../utils/qiankun'
+import { getToken, setToken } from '../utils/token'
 
 enum ErrCode {
   Success = 0,
