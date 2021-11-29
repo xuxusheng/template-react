@@ -7,8 +7,13 @@ const config: Configuration = {
   entry: './src/index.tsx',
   output: {
     path: resolve(__dirname, '../dist'),
+    publicPath: '/',
     filename: '[name]-[contenthash:8].bundle.js',
     clean: true
+
+    // 微前端相关配置
+    // library: `${name}-[name]`,
+    // libraryTarget: 'umd'
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js']
