@@ -7,6 +7,13 @@ export const login = (r?: string) => {
   // 1. 接 Passport
   // const redirectUrl = encodeURIComponent(r || window.location.href)
   // const { passportUrl, appId } = getConfig()
+  // if (!passportUrl || !appId) {
+  //   const errMsg =
+  //     '未指定 passportUrl 或 appId，无法跳转统一认证中心，请检查后重试'
+  //   console.error(errMsg)
+  //   message.error(errMsg)
+  //   return
+  // }
   // // 构造 url 中 search 部分
   // const searchParams = new URLSearchParams({
   //   appId,
@@ -35,6 +42,13 @@ export const logout = (r?: string) => {
   // 1. 接 passport
   // const redirectUrl = encodeURIComponent(r || window.location.href)
   // const { passportUrl, appId } = getConfig()
+  // if (!passportUrl || !appId) {
+  //   const errMsg =
+  //     '未指定 passportUrl 或 appId，无法跳转统一认证中心，请检查后重试'
+  //   console.error(errMsg)
+  //   message.error(errMsg)
+  //   return
+  // }
   // // 构造 url 中 search 部分
   // const searchParams = new URLSearchParams({
   //   appId,
