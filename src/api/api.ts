@@ -1,7 +1,8 @@
 import { message, Modal } from 'antd'
 import axios, { AxiosInstance } from 'axios'
 
-import { getToken, login, setToken } from '../utils'
+import { getConfig } from '../config'
+import { getToken, login, qiankun, setToken } from '../utils'
 
 enum ErrCode {
   Success = 0,
@@ -14,6 +15,7 @@ enum ErrCode {
 
 const createAxiosInstance = (): AxiosInstance => {
   const instance = axios.create({
+    baseURL: qiankun.isPoweredBy() ? getConfig().host : '',
     validateStatus: () => true // 不管 http 状态码为多少，都不抛出错误，在响应拦截器中进行处理
   })
 
