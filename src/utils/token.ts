@@ -1,3 +1,5 @@
+import { qiankun } from './qiankun'
+
 export const TOKEN_KEY = 'token'
 
 export const setToken = (token: string) => {
@@ -5,5 +7,9 @@ export const setToken = (token: string) => {
 }
 
 export const getToken = () => {
-  return localStorage.getItem(TOKEN_KEY)
+  // 如果是作为子应用被工作台加载，那么 token 由主应用进行签发，直接返回主应用传递下来的 token 就行了
+
+  if (qiankun.isPoweredBy()) {
+    return qiankun.getProps().token || ''
+  }
 }
