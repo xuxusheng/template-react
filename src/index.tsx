@@ -2,7 +2,9 @@ import { ConfigProvider } from 'antd'
 import zhCN from 'antd/lib/locale/zh_CN'
 import { render } from 'react-dom'
 import { Router } from 'react-location'
+import { ReactLocationDevtools } from 'react-location-devtools'
 import { QueryClient, QueryClientProvider } from 'react-query'
+import { ReactQueryDevtools } from 'react-query/devtools'
 
 import { App } from './app/App'
 import { reactLocation, routes } from './route'
@@ -23,6 +25,8 @@ render(
     <QueryClientProvider client={queryClient}>
       <Router location={reactLocation} routes={routes}>
         <App />
+        <ReactQueryDevtools />
+        <ReactLocationDevtools position="bottom-right" />
       </Router>
     </QueryClientProvider>
   </ConfigProvider>,
