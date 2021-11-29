@@ -1,3 +1,10 @@
+interface Window {
+  // 是否在主应用中打开
+  __POWERED_BY_QIANKUN__?: boolean
+  // 从主应用中传递过来的 publicPath
+  __INJECTED_PUBLIC_PATH_BY_QIANKUN__?: string
+}
+
 declare module '*.module.css' {
   const classes: { [key: string]: string }
   export default classes
